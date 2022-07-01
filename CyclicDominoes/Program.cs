@@ -9,7 +9,7 @@ namespace CyclicDominoes
     {
         static void Main(string[] args)
         {
-            var filePath = args[0];
+            var filePath = args != null && args.Length > 0 ? args[0] : string.Empty;
 
             var dominoesSet = GetArrayFromInput(filePath);
             var dominoTilesSet = MapArrayToDominoesSet(dominoesSet);
@@ -51,7 +51,7 @@ namespace CyclicDominoes
         {
             if (userInput == null || !File.Exists(userInput))
             {
-                throw new FileNotFoundException($"Incorrect path to file: {userInput ?? string.Empty}");
+                throw new FileNotFoundException($"Incorrect path to file: {userInput ?? string.Empty}. Check README for usage example");
             }
 
             var fileContent = JsonConvert.DeserializeObject<int[,]>(File.ReadAllText(userInput));
