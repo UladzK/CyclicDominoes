@@ -4,7 +4,7 @@ Greedy implementation for solving the problem with finding cyclic dominoes set
 
 
 ## Usage:
-This a console application. Just go to the project folder and run using 
+This a console application. Just go to the CyclicDominoes.ConsoleApp project folder and run using 
 > dotnet run
 
 Provide a path to .json file as an argument on execution.
