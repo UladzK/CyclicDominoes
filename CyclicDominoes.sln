@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclicDominoes", "CyclicDominoes\CyclicDominoes.csproj", "{1BF9EA49-DA78-469B-836E-C323E931C7FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclicDominoes.ConsoleApp", "CyclicDominoes.ConsoleApp\CyclicDominoes.ConsoleApp.csproj", "{1BF9EA49-DA78-469B-836E-C323E931C7FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclicDominoes.Core", "CyclicDominoes.Core\CyclicDominoes.Core.csproj", "{8CBEBF53-791F-4A9E-8A07-3C7E04541EC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{1BF9EA49-DA78-469B-836E-C323E931C7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BF9EA49-DA78-469B-836E-C323E931C7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BF9EA49-DA78-469B-836E-C323E931C7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CBEBF53-791F-4A9E-8A07-3C7E04541EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBEBF53-791F-4A9E-8A07-3C7E04541EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBEBF53-791F-4A9E-8A07-3C7E04541EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBEBF53-791F-4A9E-8A07-3C7E04541EC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

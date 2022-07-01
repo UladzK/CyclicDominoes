@@ -1,4 +1,4 @@
-namespace CyclicDominoes
+namespace CyclicDominoes.Core.Models
 {
     internal class TileGraphNode
     {

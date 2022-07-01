@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using CyclicDominoes.Core.Models;
 
-namespace CyclicDominoes
+namespace CyclicDominoes.Core
 { 
     public class GreedyCyclicPermutationFinder
     {

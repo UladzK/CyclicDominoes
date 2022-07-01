@@ -1,6 +1,6 @@
 using System;
 
-namespace CyclicDominoes
+namespace CyclicDominoes.Core
 {
     public class RandomProvider : IRandomProvider
     {

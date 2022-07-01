@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using CyclicDominoes.Core;
+using CyclicDominoes.Core.Models;
 using Newtonsoft.Json;
 
-namespace CyclicDominoes
+namespace CyclicDominoes.ConsoleApp
 {
     public class Program
     {
