@@ -15,7 +15,7 @@ namespace CyclicDominoes.ConsoleApp
 
             var dominoesSet = GetArrayFromInput(filePath);
             var dominoTilesSet = MapArrayToDominoesSet(dominoesSet);
-            
+
             var cycleFinder = new GreedyCyclicPermutationFinder(new RandomProvider());
             var cyclicChain = cycleFinder.TryGetCyclicPermutationForSet(dominoTilesSet, out var isSolutionFound);
             
@@ -30,7 +30,7 @@ namespace CyclicDominoes.ConsoleApp
             
             foreach (var tile in cyclicChain)
             {
-                Console.WriteLine($"[{tile[0]}|{tile[1]}]");
+                Console.WriteLine($"[{tile.LeftValue}|{tile.RightValue}]");
             }
 
             Console.WriteLine("Press a key to exit.");

@@ -4,7 +4,7 @@ using CyclicDominoes.Core.Models;
 
 namespace CyclicDominoes.Core
 { 
-    public class GreedyCyclicPermutationFinder
+    public class GreedyCyclicPermutationFinder : IDominoesCyclicPermutationFinder
     {
         private readonly IRandomProvider _randomProvider;
         
@@ -12,15 +12,15 @@ namespace CyclicDominoes.Core
         {
             _randomProvider = randomProvider;
         }
-        
-        public List<List<int>> TryGetCyclicPermutationForSet(List<DominoTile> set, out bool isCyclicPermutationFound)
+
+        public List<DominoTile> TryGetCyclicPermutationForSet(List<DominoTile> set, out bool isCyclicPermutationFound)
         {
-            var composedTileChain = new List<List<int>>();
+            var composedTileChain = new List<DominoTile>();
 
             var tileGraphPathsMap = CreateTileGraphPathsMapFromSet(set);
 
             var tileSideToAppend = RandomlyPickFirstDigit(tileGraphPathsMap);
-            while (TryPickNextTile(tileGraphPathsMap, tileSideToAppend, out var pickedTile))
+            while (TryPickNextSuitableTile(tileGraphPathsMap, tileSideToAppend, out var pickedTile))
             {
                 tileGraphPathsMap[tileSideToAppend].Remove(pickedTile);
 
@@ -28,7 +28,7 @@ namespace CyclicDominoes.Core
                 {
                     var tile = GetProperTileSide(tileSideToAppend, pickedTile);
 
-                    composedTileChain.Add(new List<int> {tile.leftSide, tile.rightSide});
+                    composedTileChain.Add(new DominoTile { LeftValue = tile.leftSide, RightValue = tile.rightSide});
                     tileSideToAppend = tile.rightSide;
 
                     pickedTile.IsNodeTraversed = true;
@@ -36,7 +36,7 @@ namespace CyclicDominoes.Core
             }
 
             isCyclicPermutationFound = composedTileChain.Count == set.Count
-                                       && composedTileChain[0][0] == composedTileChain[^1][1];
+                                       && composedTileChain[0].LeftValue == composedTileChain[^1].RightValue;
 
             return composedTileChain;
         }
@@ -48,7 +48,7 @@ namespace CyclicDominoes.Core
             return digitsInPool[_randomProvider.GetNextRandom(0, digitsInPool.Count)];
         }
 
-        private bool TryPickNextTile(Dictionary<int, List<TileGraphNode>> pathsMap, int tileSideNeeded,
+        private bool TryPickNextSuitableTile(Dictionary<int, List<TileGraphNode>> pathsMap, int tileSideNeeded,
             out TileGraphNode pickedTileGraph)
         {
             var tilesWithNeededDigit = pathsMap[tileSideNeeded];
